@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx8fpypkc5csu"]
+
+[ext_resource type="Texture2D" uid="uid://ch2eup8yjiugb" path="res://images/SilverCoin.png" id="1_0f5kc"]
+[ext_resource type="Script" path="res://Ribbon/hanger_box.gd" id="1_m8tll"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frctk"]
+size = Vector2(6, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyewd"]
+size = Vector2(6, 6)
+
+[node name="HangerBox" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 0
+freeze = true
+script = ExtResource("1_m8tll")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0f5kc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_frctk")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_uyewd")
+debug_color = Color(0.894118, 0.262745, 0.47451, 0.419608)

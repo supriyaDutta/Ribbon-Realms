@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6un541ulx5ir"]
+
+[ext_resource type="Script" path="res://actors/player.gd" id="1_tooxf"]
+[ext_resource type="Texture2D" uid="uid://rphjjw330rmi" path="res://images/SpriteSheet.png" id="1_y8kcu"]
+[ext_resource type="PackedScene" uid="uid://ck38asx4kflc0" path="res://weapons/chain.tscn" id="3_44iq2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7flvk"]
+radius = 8.0
+
+[node name="player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_tooxf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y8kcu")
+hframes = 4
+vframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7flvk")
+
+[node name="Chain" parent="." instance=ExtResource("3_44iq2")]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://d11ca8lhixu0w"]
+
+[ext_resource type="Script" path="res://Ribbon/ribbon.gd" id="1_ifb5c"]
+[ext_resource type="Texture2D" uid="uid://ch2eup8yjiugb" path="res://images/SilverCoin.png" id="2_xhy1h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ex18y"]
+radius = 2.0
+height = 10.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 5
+mass = 0.5
+gravity_scale = 0.5
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_ifb5c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_ex18y")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CollisionShape2D"]
+position = Vector2(0, 3)
+bias = 0.1
+softness = 0.2
+
+[node name="SilverCoin" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 3)
+texture = ExtResource("2_xhy1h")

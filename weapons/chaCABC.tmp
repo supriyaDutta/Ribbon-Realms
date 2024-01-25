@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck38asx4kflc0"]
+
+[ext_resource type="Texture2D" uid="uid://dtj03cc3g2htv" path="res://images/CanonBall.png" id="1_8clwv"]
+[ext_resource type="Script" path="res://weapons/chain.gd" id="1_bf244"]
+[ext_resource type="Texture2D" uid="uid://bm70gnn08omd6" path="res://images/Arrow.png" id="1_oj3ln"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eise3"]
+radius = 4.0
+height = 12.0
+
+[node name="Chain" type="Node2D"]
+script = ExtResource("1_bf244")
+
+[node name="Link" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(0, 5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8clwv")
+vframes = 5
+
+[node name="Tip" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Tip"]
+texture = ExtResource("1_oj3ln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tip"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_eise3")
